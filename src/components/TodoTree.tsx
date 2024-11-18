@@ -10,8 +10,6 @@ import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Filters } from '../interfaces/Filters.interface';
 import TodoFilter from './TodoFilter';
 
-const { confirm } = Modal;
-
 const PAGE_LIMIT = 10;
 
 const TodoTree: React.FC = () => {
