@@ -1,50 +1,19 @@
-# React + TypeScript + Vite
+Requirements
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Node 22+ and NPM.
 
-Currently, two official plugins are available:
+This app is built upon a Vite React server, using Typescript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The frontend itself is modeled as a story using [Storybooks](https://storybook.js.org/). This makes it very easy to flow through the views and test the app using various inputs and screen sizes. 
 
-## Expanding the ESLint configuration
+As for the rest, I'm only using [Antd](https://ant.design/) for material and component sourcing. It makes some significant heavy lifting around the tree structure of the data.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Now, to spin up the app: make sure youre under Node 22 or higher, clone the repo, run npm install and then npm run storybook. 
 
-- Configure the top-level `parserOptions` property like this:
+In this view ![image](https://github.com/user-attachments/assets/6e298918-2a6b-4033-8cec-04df68ce142c) you will need to **first go into the "AuthPage" component, register an user and then log in. It will store the JWT into your local storage, which will then be used for the TodoTree component.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+In the ToDo tree component, there's a very visible lack of design, I didn't really have the time to even begin with the styles, but it's functional and everything is visible to the user. There's a significant missing feature: there's no sorting or text search (also due to a lack of time), but the filtering options make up for it.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+You can first create a Todo with the top-left button. Then you can edit todos, delete them or create children for them (note: I didn't get to implement a way to change/remove the parent of a children). The table has an infinite scroll, the endpoints are paginated and will return records 10-by-10. 
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+The cards are also exapandable, they will fetch the children of the element recursively as you click them.
