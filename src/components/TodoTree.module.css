@@ -1,0 +1,11 @@
+.card {
+    width: 100%;
+}
+
+.ant-list-item {
+    padding: 0;
+}
+
+.ant-card {
+    border-radius: 8px;
+}

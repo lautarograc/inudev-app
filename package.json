@@ -12,8 +12,15 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.1",
+    "antd": "^5.22.1",
+    "axios": "^1.7.7",
+    "dayjs": "^1.11.13",
+    "js-cookie": "^3.0.5",
+    "moment": "^2.30.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-infinite-scroll-component": "^6.1.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -25,6 +32,7 @@
     "@storybook/react": "^8.4.4",
     "@storybook/react-vite": "^8.4.4",
     "@storybook/test": "^8.4.4",
+    "@types/js-cookie": "^3.0.6",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
